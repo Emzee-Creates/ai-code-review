@@ -117,7 +117,8 @@ body {
 #recentReviewsTab{
     border-radius: 20px;
     margin-right: 20px;
-    padding: 8px 15px
+    margin-left: 50px;
+    padding: 8px 15px;
     cursor: pointer;
 }
 
