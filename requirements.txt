@@ -1,0 +1,22 @@
+# FastAPI dependencies
+fastapi
+uvicorn
+
+# AI & OpenAI API
+openai
+httpx
+
+# Authentication & Security
+python-jose
+passlib[bcrypt]
+pydantic
+pyjwt
+
+# Database (MongoDB)
+motor
+
+# WebSockets
+websockets
+
+# Utility Libraries
+python-dotenv
