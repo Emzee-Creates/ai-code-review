@@ -3,7 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { WebSocketServer } = require("ws");
-const http = require("http"); 
+const http = require("http");
+const axios = require("axios"); // Added Axios for API calls
 const codeReviewRoutes = require("./routes/codeReviewRoutes");
 
 const app = express();
@@ -23,6 +24,24 @@ mongoose
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api", codeReviewRoutes);
+
+// 🔹 FastAPI AI Review API URL (Render Deployment)
+const AI_API_URL = "https://ai-code-reviewer-2w6f.onrender.com";
+
+// ✅ New Route: Forward Code Review Requests to FastAPI
+app.post("/api/code/review", async (req, res) => {
+  try {
+    const { code } = req.body;
+    if (!code) return res.status(400).json({ error: "Code is required" });
+
+    const response = await axios.post(`${AI_API_URL}/api/code/review`, { code });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error("❌ Error calling AI API:", error.response?.data || error.message);
+    res.status(500).json({ error: "Failed to fetch AI review." });
+  }
+});
 
 // WebSocket Server Setup
 const wss = new WebSocketServer({ server });
