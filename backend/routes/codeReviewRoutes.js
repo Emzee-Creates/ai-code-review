@@ -13,7 +13,7 @@ router.post("/code/review", authMiddleware, async (req, res) => {
         }
 
         // Forward the request to FastAPI
-        const fastApiResponse = await axios.post("http://127.0.0.1:8000/review", { code });
+        const fastApiResponse = await axios.post("https://ai-code-reviewer-2w6f.onrender.com/review", { code });
 
         res.json({ review: fastApiResponse.data.review });
     } catch (error) {
