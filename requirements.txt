@@ -2,8 +2,8 @@
 fastapi
 uvicorn
 
-# AI & OpenAI API
-openai
+# AI & Gemini
+google-generativeai
 httpx
 
 # Authentication & Security
