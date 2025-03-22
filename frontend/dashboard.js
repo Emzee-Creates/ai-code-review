@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("📡 Sending token in API request:", user.token); // ✅ Debugging step
 
         try {
-            const response = await fetch("http://localhost:5000/api/code/review", {
+            const response = await fetch("https://ai-code-reviewer-2w6f.onrender.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
