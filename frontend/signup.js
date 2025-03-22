@@ -7,7 +7,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     const errorMessage = document.getElementById("errorMessage");
 
     try {
-        const response = await fetch("https://ai-code-reviewer-backend-clrn.onrender.com", {
+        const response = await fetch("https://ai-code-reviewer-backend-clrn.onrender.com/api/auth/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password }),
