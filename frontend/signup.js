@@ -16,7 +16,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            window.location.href = "index.html"; // Redirect to Dashboard
+            window.location.href = "dashboard.html"; // Redirect to Dashboard
         } else {
             errorMessage.textContent = data.message || "Signup failed!";
         }
