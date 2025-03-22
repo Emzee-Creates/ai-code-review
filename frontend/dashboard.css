@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Logout Button */
+#logoutBtn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#logoutBtn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+/* Submit Button */
+#submitCode {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#submitCode:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Dark Mode Toggle */
+#darkModeToggle {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background: #222;
+}
+
+/* Code Review Display */
+#reviewOutput {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dark-mode #reviewOutput {
+    background: #333;
+    color: white;
+}
+
+/* Recent Reviews */
+#recentReviews {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+.dark-mode #recentReviews {
+    background: #222;
+}
+
+.hidden {
+    display: none;
+}
+
+.review-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+.review-item:hover {
+    background-color: #eee;
+}
+
+.review-summary {
+    font-weight: bold;
+}
+
+.review-details {
+    margin-top: 5px;
+    padding: 5px;
+    border-top: 1px solid #ccc;
+}

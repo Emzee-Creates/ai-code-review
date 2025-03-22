@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../frontend/dashboard.css">
+</head>
+<body>
+    <header>
+        <h2>Welcome, <span id="userName"></span>!</h2>
+        <button id="darkModeToggle">🌙 Dark Mode</button>
+        <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main>
+        <h3>Submit Code for Review</h3>
+        <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+        <button id="submitCode">Submit for Review</button>
+
+        <div id="reviewOutput"></div>
+
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <button id="recentReviewsTab">📜 Recent Reviews</button>
+        </div>
+
+        <!-- Expandable Recent Reviews List -->
+        <ul id="recentReviews" class="hidden"></ul>
+    </main>
+    <button id="clearReview">Clear Review</button>
+
+    <script src="../frontend/dashboard.js"></script>
+</body>
+</html>
