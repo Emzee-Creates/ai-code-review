@@ -3,50 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h2>AI Dashboard</h2>
-            <nav>
-                <ul>
-                    <li><button id="recentReviewsTab">📜 Recent Reviews</button></li>
-                    <li><button id="darkModeToggle">🌙 Dark Mode</button></li>
-                    <li><button id="logoutBtn">Logout</button></li>
-                </ul>
-            </nav>
-        </aside>
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+        <h2 class="logo">AI Dashboard</h2>
+        <nav class="nav-links">
+            <button id="dashboardTab">🏠 Dashboard</button>
+            <button id="recentReviewsTab">📜 Recent Reviews</button>
+            <button id="darkModeToggle">🌙 Dark Mode</button>
+            <button id="logoutBtn">Logout</button>
+        </nav>
+    </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <header>
-                <h2>Welcome, <span id="userName"></span>!</h2>
-            </header>
+    <main>
+        <h2>Welcome, <span id="userName"></span>!</h2>
 
-            <!-- Submit Code Section -->
-            <section class="code-submission">
-                <h3>Submit Code for Review</h3>
-                <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
-                <button id="submitCode">Submit for Review</button>
-            </section>
+        <!-- Expandable Recent Reviews List -->
+        <ul id="recentReviews" class="hidden"></ul>
+        <button id="clearReview">Clear Review</button>
 
-            <!-- Review Output -->
-            <section class="review-output">
-                <h3>Review Result</h3>
-                <div id="reviewOutput"></div>
-                <button id="clearReview">Clear Review</button>
-            </section>
+        <h3>Submit Code for Review</h3>
+        <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+        <button id="submitCode">Submit for Review</button>
 
-            <!-- Recent Reviews -->
-            <section class="recent-reviews">
-                <h3>Recent Reviews</h3>
-                <ul id="recentReviews" class="hidden"></ul>
-            </section>
-        </main>
-    </div>
+        <div id="reviewOutput"></div>
+    </main>
 
     <script src="dashboard.js"></script>
 </body>
