@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviewOutput = document.getElementById("reviewOutput");
     const logoutButton = document.getElementById("logoutBtn");
     const darkModeToggle = document.getElementById("darkModeToggle");
-    const recentReviewsList = document.getElementById("recentReviews");
     const recentReviewsTab = document.getElementById("recentReviewsTab");
+    const recentReviewsList = document.getElementById("recentReviews");
 
     if (!recentReviewsList) return;
 
+    // Get user data
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user || !user.token) {
         redirectToLogin("Session expired. Please log in again.");
@@ -19,9 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     userNameSpan.textContent = user.name;
 
+    // Token Expiry Check
     function isTokenExpired(token) {
         try {
-            const payload = JSON.parse(atob(token.split(".")[1])); 
+            const payload = JSON.parse(atob(token.split(".")[1]));
             return payload.exp * 1000 < Date.now();
         } catch {
             return true;
@@ -54,14 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // 📡 WebSocket Connection
     const ws = new WebSocket("ws://localhost:5000");
 
-    ws.onopen = () => {
-        console.log("✅ Connected to WebSocket");
-    };
+    ws.onopen = () => console.log("✅ Connected to WebSocket");
 
     ws.onmessage = (event) => {
         try {
             const data = JSON.parse(event.data);
-            
             if (data.type === "reviewUpdate") {
                 reviewOutput.innerHTML = formatReview(data.review);
                 saveRecentReview(data.review);
@@ -71,13 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    ws.onclose = () => {
-        console.log("❌ WebSocket Disconnected");
-    };
+    ws.onclose = () => console.log("❌ WebSocket Disconnected");
 
-    ws.onerror = (error) => {
-        console.error("⚠️ WebSocket Error:", error);
-    };
+    ws.onerror = (error) => console.error("⚠️ WebSocket Error:", error);
 
     // 📝 Submit Code for Review
     submitButton.addEventListener("click", async () => {
@@ -128,8 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Clear review button
     clearReviewButton.addEventListener("click", () => {
         reviewOutput.innerHTML = "";
+    });
+
+    // Recent Reviews Toggle
+    recentReviewsTab.addEventListener("click", () => {
+        recentReviewsList.classList.toggle("hidden");
     });
 
     function redirectToLogin(message) {
@@ -181,11 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
             recentReviewsList.appendChild(li);
         });
     }
-
-    // 📜 Toggle Recent Reviews Visibility
-    recentReviewsTab.addEventListener("click", () => {
-        recentReviewsList.classList.toggle("hidden");
-    });
 
     displayRecentReviews();
 });
