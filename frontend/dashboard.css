@@ -1,13 +1,9 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    height: 100vh;
-    background-color: #f4f4f4;
-    color: #333;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark Mode */
@@ -16,142 +12,98 @@ body {
     color: #ffffff;
 }
 
-/* Layout */
-.container {
+/* Top Navigation Bar */
+.top-bar {
     display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background: #1e1e2e;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
     color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.sidebar nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar button {
+    padding: 15px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
     width: 100%;
-    padding: 10px;
-    background: #33334d;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links button {
+    background: #34495e;
     color: white;
     border: none;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
-.sidebar button:hover {
-    background: #444466;
+.nav-links button:hover {
+    background: #1abc9c;
 }
 
 /* Main Content */
-.main-content {
-    flex: 1;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Code Submission */
-.code-submission {
-    background: white;
+main {
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
 }
 
-.dark-mode .code-submission {
-    background: #222;
+/* Logout Button */
+#logoutBtn {
+    background: #ff4d4d;
 }
 
-/* Textarea */
-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-    font-size: 14px;
-}
-
-.dark-mode textarea {
-    background: #333;
-    color: white;
-    border: 1px solid #555;
+#logoutBtn:hover {
+    background: #cc0000;
 }
 
 /* Submit Button */
 #submitCode {
-    width: 100%;
     background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 #submitCode:hover {
     background: #0056b3;
 }
 
-/* Review Output */
-.review-output {
-    margin-top: 20px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Dark Mode Toggle */
+#darkModeToggle {
+    background: #444;
 }
 
-.dark-mode .review-output {
+#darkModeToggle:hover {
     background: #222;
 }
 
-/* Clear Review Button */
-#clearReview {
-    background: #ff4d4d;
-    color: white;
-    border: none;
+/* Code Review Display */
+#reviewOutput {
+    background: #f8f9fa;
     padding: 10px;
-    margin-top: 10px;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    white-space: pre-wrap;
+    font-family: monospace;
+    transition: opacity 0.3s ease-in-out;
 }
 
-#clearReview:hover {
-    background: #cc0000;
+.dark-mode #reviewOutput {
+    background: #333;
+    color: white;
 }
 
 /* Recent Reviews */
-.recent-reviews {
-    margin-top: 20px;
-}
-
 #recentReviews {
+    margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
     background: #f1f1f1;
@@ -163,4 +115,17 @@ textarea {
 
 .hidden {
     display: none;
+}
+
+.review-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+.review-item:hover {
+    background-color: #eee;
 }
