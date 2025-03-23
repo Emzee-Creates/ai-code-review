@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #1e1e2e;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    background: #33334d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar button:hover {
+    background: #444466;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Code Submission */
+.code-submission {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .code-submission {
+    background: #222;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 14px;
+}
+
+.dark-mode textarea {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* Submit Button */
+#submitCode {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#submitCode:hover {
+    background: #0056b3;
+}
+
+/* Review Output */
+.review-output {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .review-output {
+    background: #222;
+}
+
+/* Clear Review Button */
+#clearReview {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#clearReview:hover {
+    background: #cc0000;
+}
+
+/* Recent Reviews */
+.recent-reviews {
+    margin-top: 20px;
+}
+
+#recentReviews {
+    padding: 10px;
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+.dark-mode #recentReviews {
+    background: #222;
+}
+
+.hidden {
+    display: none;
+}
