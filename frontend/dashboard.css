@@ -3,7 +3,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -13,34 +12,26 @@ body {
     color: #ffffff;
 }
 
-/* Top Navigation Bar */
-.top-bar {
+/* Top Bar */
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1e1e1e;
-    padding: 10px 20px;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: #1c1c1c;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.top-bar .nav-items {
+header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Top Bar Buttons */
+.top-bar {
     display: flex;
     align-items: center;
-}
-
-.top-bar button {
-    background: transparent;
-    color: white;
-    border: none;
-    font-size: 16px;
-    margin-right: 15px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.top-bar button:hover {
-    opacity: 0.7;
+    gap: 15px;
 }
 
 /* Dark Mode Toggle */
@@ -58,40 +49,77 @@ body {
     background: #222;
 }
 
-/* Main Content */
+/* Recent Reviews Button */
+#recentReviewsTab {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#recentReviewsTab:hover {
+    text-decoration: underline;
+}
+
+/* Logout Button */
+#logoutBtn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-left: auto; /* Push to the right */
+}
+
+#logoutBtn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+/* Main Section */
 main {
     padding: 20px;
-    max-width: 800px;
-    margin: 40px auto;
+    text-align: center;
 }
 
-/* Code Review Section */
-h3 {
-    margin-bottom: 10px;
-}
-
-/* Code Input */
+/* Textarea */
 #codeInput {
-    width: 100%;
+    width: 90%;
     height: 150px;
     padding: 10px;
-    font-family: monospace;
+    font-size: 1rem;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 /* Submit Button */
 #submitCode {
     background: #007bff;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-size: 16px;
-    margin-top: 10px;
 }
 
 #submitCode:hover {
@@ -99,17 +127,10 @@ h3 {
     transform: scale(1.05);
 }
 
-/* Improved Clear Review Button */
+/* Clear Review Button */
 #clearReview {
     background: #ff4d4d;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-size: 16px;
-    margin-top: 10px;
 }
 
 #clearReview:hover {
@@ -119,75 +140,18 @@ h3 {
 
 /* Review Output */
 #reviewOutput {
-    background: #fff;
-    padding: 15px;
-    border-radius: 5px;
+    width: 90%;
+    max-height: 200px; /* Fixed height */
+    overflow-y: auto; /* Scrollable */
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
     white-space: pre-wrap;
     font-family: monospace;
-    transition: opacity 0.3s ease-in-out;
-    max-height: 250px; /* Fixed height */
-    overflow-y: auto; /* Scrollable */
-    border: 1px solid #ddd;
-    margin-top: 15px;
+    margin: 20px auto;
 }
 
 .dark-mode #reviewOutput {
     background: #333;
     color: white;
-    border-color: #555;
-}
-
-/* Recent Reviews */
-#recentReviews {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    background: #f1f1f1;
-}
-
-.dark-mode #recentReviews {
-    background: #222;
-}
-
-.hidden {
-    display: none;
-}
-
-.review-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 5px 0;
-    cursor: pointer;
-    background-color: #f9f9f9;
-    transition: background 0.3s ease;
-}
-
-.review-item:hover {
-    background-color: #eee;
-}
-
-.review-summary {
-    font-weight: bold;
-}
-
-.review-details {
-    margin-top: 5px;
-    padding: 5px;
-    border-top: 1px solid #ccc;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .top-bar button {
-        margin-bottom: 10px;
-    }
-
-    main {
-        padding: 10px;
-    }
 }
