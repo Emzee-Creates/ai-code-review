@@ -21,7 +21,7 @@ class CodeRequest(BaseModel):
 @app.post("/review")
 async def review_code(request: CodeRequest):
     try:
-        model = genai.GenerativeModel("gemini-1.5-pro-latest")
+        model = genai.GenerativeModel("gemini-2.5-flash")
 
         # Strong prompt to enforce plain text output
         prompt = f"""
