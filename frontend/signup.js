@@ -16,11 +16,18 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            window.location.href = "dashboard.html"; // Redirect to Dashboard
+            // ✅ Store token + user in localStorage
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+
+            // Redirect to dashboard
+            window.location.href = "dashboard.html";
         } else {
-            errorMessage.textContent = data.message || "Signup failed!";
+            errorMessage.textContent =
+                data.msg || (data.errors && data.errors[0].msg) || "Signup failed!";
         }
     } catch (error) {
         errorMessage.textContent = "Server error. Try again later.";
+        console.error("Signup error:", error);
     }
 });
