@@ -21,12 +21,47 @@ class CodeRequest(BaseModel):
 @app.post("/review")
 async def review_code(request: CodeRequest):
     try:
-        model = genai.GenerativeModel("gemini-1.5-pro-latest")  # Using the best available model
+        model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
-        response = model.generate_content(
-            f"Review this code and suggest improvements:\n{request.code}"
-        )
+        # Strong prompt to enforce plain text output
+        prompt = f"""
+        You are an AI code reviewer. 
+        Review the following code and suggest improvements.
+        Return your feedback ONLY as plain text sentences. 
+        Do not use JSON, Markdown, or special formatting.
 
-        return {"review": response.text} if response else {"error": "Empty response from Gemini"}
+        Code snippet:
+        {request.code}
+        """
+
+        print("📨 Sending prompt to Gemini...")
+        response = model.generate_content(prompt)
+
+        # Log the raw response for debugging
+        print("✅ Raw Gemini response:", response)
+
+        # First try .text
+        if response and response.text:
+            print("📄 Gemini returned .text:", response.text)
+            return {"review": response.text}
+
+        # Fallback: check candidates
+        if response and response.candidates:
+            candidate_texts = [
+                part.text
+                for candidate in response.candidates
+                for part in candidate.content.parts
+                if hasattr(part, "text")
+            ]
+            if candidate_texts:
+                joined_text = " ".join(candidate_texts)
+                print("📄 Gemini returned from candidates:", joined_text)
+                return {"review": joined_text}
+
+        # If still nothing
+        print("⚠️ Gemini returned no usable text")
+        return {"error": "Invalid review data — no text in Gemini response"}
+
     except Exception as e:
+        print("❌ Exception in review_code:", str(e))
         return {"error": str(e)}
